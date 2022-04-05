@@ -2,6 +2,7 @@ FROM alpine:3.15
 
 RUN apk update && apk upgrade
 
+RUN apk add servcie
 RUN apk add mariadb
 RUN apk add mariadb-client
 
