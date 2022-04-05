@@ -2,7 +2,7 @@ FROM alpine:3.15
 
 RUN apk update && apk upgrade
 
-RUN apk add service
+RUN apk add openrc
 RUN apk add mariadb
 RUN apk add mariadb-client
 
@@ -12,7 +12,7 @@ COPY ./tools/wordpress.sql /
 
 EXPOSE 3306
 
-RUN service mysql start && mysql < start.sql
+RUN rc-service mysql start && mysql < start.sql
 #RUN mysql < wordpress.sql;
 
 CMD ["mysqld"]
