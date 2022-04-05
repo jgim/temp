@@ -5,8 +5,6 @@ RUN apk update && apk upgrade
 RUN apk add openrc
 #rc 서비스는 알파인에서 사용되는 초기화 시스템
 RUN apk add mariadb
-RUN apk add mariadb-client
-RUN apk add mariadb-server
 
 RUN touch /run/openrc/softlevel
 RUN mkdir -p /run/mysqld
