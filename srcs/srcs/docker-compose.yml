@@ -44,14 +44,14 @@ services:
       - .env
 
 volumes:
-  db_data:
+  db-data:
     name: db-data
     driver_opts:
       type: none
       device: /home/jgim/data/db-data
       o: bind
 
-  www_data:
+  www-data:
     name: www-data
     driver_opts:
       type: none
