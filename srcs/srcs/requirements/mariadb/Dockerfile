@@ -12,7 +12,8 @@ COPY ./tools/wordpress.sql /
 
 EXPOSE 3306
 
-RUN	mysql < start.sql
+RUN rc-service mariadb start
+RUN	rc-service mysql < start.sql
 #RUN mysql < wordpress.sql;
 
 CMD ["mysqld"]
