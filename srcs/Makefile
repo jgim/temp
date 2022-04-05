@@ -14,19 +14,19 @@ volume:
 
 build:
 		@echo "$(YELLOW)docker-compose build$(RESET)"
-		docker-compose -f srcs/docker-compose.yaml build
+		docker-compose -f srcs/docker-compose.yml build
 
 up:
 		@echo "$(YELLOW)docker-compose up$(RESET)"
-		docker-compose -f srcs/docker-compose.yaml up -d
+		docker-compose -f srcs/docker-compose.yml up -d
 
 stop:
 		@echo "$(YELLOW)docker-compose stop$(RESET)"
-		docker-compose -f srcs/docker-compose.yaml stop
+		docker-compose -f srcs/docker-compose.yml stop
 
 clean:
 		@echo "$(RED)removing docker container$(RESET)"
-		docker-compose -f srcs/docker-compose.yaml down
+		docker-compose -f srcs/docker-compose.yml down
 		@sudo sed -i "s/${HOST}.42.kr/localhost/g" /etc/hosts
 
 fclean:	clean
