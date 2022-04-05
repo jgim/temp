@@ -18,7 +18,7 @@ services:
     image: wordpress
     container_name: wordpress
     volumes:
-      - www-data:/var/www/html/wordpress
+      - www-data:/var/www/wordpress
     depends_on:
       - mariadb
     restart: always
@@ -32,14 +32,14 @@ services:
     image: nginx
     container_name: nginx
     volumes:
-      - www-data:/var/www/html/wordpress
+      - www-data:/var/www/wordpress
     depends_on:
       - wordpress
     restart: always
     networks:
       - jgim_bridge
     ports:
-      - "443:443"
+      - 443:443
     env_file:
       - .env
 
