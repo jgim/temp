@@ -1,6 +1,6 @@
 FROM alpine:3.15
 
-RUN apk update && apk upgrade
+RUN apk update
 RUN apk add openrc
 RUN apk add php7 php-mysqli php-fpm
 RUN apk add wget curl
