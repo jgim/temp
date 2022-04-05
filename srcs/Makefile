@@ -5,7 +5,7 @@ RESET	= \033[0m
 all:	volume build up
 
 host:
-		@sudo sed -i "s/localhost/${HOST}.42.kr/g" /etc/hosts
+		@sudo sed -i "s/localhost/jgim.42.kr/g" /etc/hosts
 
 volume:
 		@echo "$(YELLOW)make Volume directory$(RESET)"
@@ -27,7 +27,7 @@ stop:
 clean:
 		@echo "$(RED)removing docker container$(RESET)"
 		docker-compose -f srcs/docker-compose.yml down
-		@sudo sed -i "s/${HOST}.42.kr/localhost/g" /etc/hosts
+		@sudo sed -i "s/jgim.42.kr/localhost/g" /etc/hosts
 
 fclean:	clean
 		@echo "$(RED)removing all file$(RESET)"
