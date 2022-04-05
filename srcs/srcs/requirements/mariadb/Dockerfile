@@ -8,7 +8,7 @@ RUN mkdir -p /run/mysqld
 
 COPY tools/ /
 
-COPY ./tools/my.cnf /etc/mysql/my.cnf
+COPY ./conf/my.cnf /etc/mysql/my.cnf
 RUN chmod 0444 /etc/mysql/my.cnf
 
 EXPOSE 3306
