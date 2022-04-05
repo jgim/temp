@@ -9,8 +9,8 @@ host:
 
 volume:
 		@echo "$(YELLOW)make Volume directory$(RESET)"
-		mkdir -p		/home/jgim/data/db-data
-		mkdir -p		/home/jgim/data/www-data
+		mkdir -p		/home/jgim/data/db_data
+		mkdir -p		/home/jgim/data/www_data
 
 build:
 		@echo "$(YELLOW)docker-compose build$(RESET)"

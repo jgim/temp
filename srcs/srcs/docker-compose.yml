@@ -6,7 +6,7 @@ services:
     image: mariadb
     container_name: mariadb
     volumes:
-      - db-data:/var/lib/mysql
+      - db_data:/var/lib/mysql
     networks:
       - jgim_bridge
     restart: always
@@ -18,7 +18,7 @@ services:
     image: wordpress
     container_name: wordpress
     volumes:
-      - www-data:/var/www/html/wordpress
+      - www_data:/var/www/html/wordpress
     depends_on:
       - mariadb
     restart: always
