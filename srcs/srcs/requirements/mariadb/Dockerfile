@@ -3,17 +3,13 @@ FROM alpine:3.15
 RUN apk update && apk upgrade
 
 RUN apk add mariadb mariadb-client
-RUN apk add mariadb-server-utils
 
 RUN mkdir -p /run/mysqld
 
 COPY tools/ /
 
-RUN sed -i -e "s/^bind-address\s*=\s*127.0.0.1/bind-address = 0.0.0.0/" /etc/mysql/my.cnf
-
-#COPY ./conf/50-server.cnf /etc/mysql/mariadb.conf.d/
-#COPY conf/mariadb-server.cnf /etc/my.cnf.d/mariadb-server.cnf
-
+COPY ./tools/my.cnf /etc/mysql/my.cnf
+RUN chmod 0444 /etc/mysql/my.cnf
 
 EXPOSE 3306
 
