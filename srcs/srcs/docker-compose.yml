@@ -48,14 +48,14 @@ volumes:
     name: db_data
     driver_opts:
       type: none
-      device: /home/jgim/data/db-data
+      device: /home/jgim/data/db_data
       o: bind
 
   www-data:
     name: www_data
     driver_opts:
       type: none
-      device: /home/jgim/data/www-data
+      device: /home/jgim/data/www_data
       o: bind
 
 networks:
