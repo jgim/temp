@@ -2,10 +2,10 @@ RED		= \033[1;31m
 YELLOW	= \033[1;33m
 RESET	= \033[0m
 
-all:	volume build up
+all:	volume hosts build up
 
 host:
-		@sudo sed -i "s/localhost/jgim.42.kr/g" /etc/hosts
+		@sudo sed -i "s/localhost/jgim.42.fr/g" /etc/hosts
 
 volume:
 		@echo "$(YELLOW)make Volume directory$(RESET)"
