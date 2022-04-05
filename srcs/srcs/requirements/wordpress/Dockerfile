@@ -2,7 +2,7 @@ FROM alpine:3.15
 
 RUN apk update \
 	apk add openrc \
- 	php7 php7-mysqli php7-fpm php7-fpm php7-cgi \
+ 	php7 php7-mysqli php7-fpm php7-cgi \
 	wget curl
 
 RUN wget https://wordpress.org/latest.tar.gz \
