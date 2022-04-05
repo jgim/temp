@@ -27,7 +27,7 @@ stop:
 clean:
 		@echo "$(RED)removing docker container$(RESET)"
 		docker-compose -f srcs/docker-compose.yml down
-		@sudo sed -i "s/jgim.42.kr/localhost/g" /etc/hosts
+		@sudo sed -i "s/jgim.42.fr/localhost/g" /etc/hosts
 
 fclean:	clean
 		@echo "$(RED)removing all file$(RESET)"
