@@ -51,7 +51,7 @@ volumes:
       device: /home/jgim/data/db_data
       o: bind
 
-  www-data:
+  www_data:
     name: www_data
     driver_opts:
       type: none
