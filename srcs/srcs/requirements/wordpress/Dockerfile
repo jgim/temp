@@ -13,7 +13,7 @@ COPY /conf/wp-config.php /var/www/wordpress/
 
 COPY /conf/www.conf /etc/php7/php-fpm.d/
 
-RUN chown -R www-data:www-data /var/www/wordpress/ \
+RUN chown -R nobody:nobody /var/www/wordpress/ \
 && chmod -R 775 /var/www/wordpress/
 
 EXPOSE 9000
