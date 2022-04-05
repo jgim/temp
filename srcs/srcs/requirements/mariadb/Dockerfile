@@ -10,7 +10,7 @@ RUN openrc
 RUN touch /run/openrc/softlevel
 RUN mkdir -p /run/mysqld
 
-#COPY ./conf/50-server.cnf /etc/mysql/mariadb.conf.d/
+COPY ./conf/50-server.cnf /etc/mysql/mariadb.conf.d/
 COPY tools/ /
 
 EXPOSE 3306
