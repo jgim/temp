@@ -32,7 +32,7 @@ services:
     image: nginx
     container_name: nginx
     volumes:
-      - www-data:/var/www/html/wordpress
+      - www_data:/var/www/html/wordpress
     depends_on:
       - wordpress
     restart: always
