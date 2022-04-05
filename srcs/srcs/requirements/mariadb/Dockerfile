@@ -11,8 +11,7 @@ COPY ./tools/wordpress.sql /
 
 EXPOSE 3306
 
-RUN service mysql start
-RUN mysql < start.sql;
-RUN mysql < wordpress.sql;
+RUN service mysql start && mysql < start.sql;
+#RUN mysql < wordpress.sql;
 
 CMD ["mysqld"]
