@@ -1,24 +1,24 @@
+# mysql_install_db обрабатывает задачи инициализации
+
+# инициализация каталога данных MySQL
 mysql_install_db --user=mysql --datadir=/var/lib/mysql
-#mysql_install_db는 mysqld를 사용할 준비가 되기 전에 수행해야하는 초기화 작업
-#mySQL 데이터 디렉토리를 초기화하고 여기에 포함된 시스템 테이블을 생성
-#datadir : 데이터 디렉토리 경로 = var/lib/mysql
 
+# -u root == --user=root
+# & - фоновый режим
 /usr/bin/mysqld -u root & sleep 1
-#root권한으로 mysql 실행, sleep으로 딜레이를 줌
 
-mysql -u root -e "CREATE USER 'jgim'@'localhost' IDENTIFIED BY 'password';"
-mysql -u root -e "GRANT ALL PRIVILEGES ON wordpress.* TO 'password';"
-mysql -u root -e "FLUSH PRIVILEGES;"
-
-mysql -u root -e "CREATE DATABASE IF NOT EXISTS wordpress;"
+# имя хоста `localhost` - подключиться к серверу можно только с локального хоста
+# имя хоста `%` - подключиться к серверу можно с любого хоста
+mysql -u root -e "CREATE DATABASE IF NOT EXISTS 'password';"
 mysql -u root -e "CREATE USER 'jgim'@'%' IDENTIFIED BY 'password';"
-mysql -u root -e "GRANT ALL PRIVILEGES ON wordpress.* TO 'password';"
+# неограниченные права доступа к БД
+mysql -u root -e "GRANT ALL PRIVILEGES ON 'jgim'.* TO 'password'@'%';"
+# сохранение и активация изменений
 mysql -u root -e "FLUSH PRIVILEGES;"
+# инициализация БД. Пользователи WP сохранены
+mysql $MYSQL_NAME -u root < wordpress.sql
 
 mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED BY 'password';";
 
-rc-service mariadb restart
-rc-service mariadb stop
-
+pkill mysqld
 /usr/bin/mysqld -u root
-#root권한으로 mysql 실행
