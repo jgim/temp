@@ -2,7 +2,8 @@ FROM alpine:3.15
 
 RUN apk update && apk upgrade
 
-RUN apk add mariadb mariadb-client mariadb-server
+RUN apk add mariadb mariadb-client
+RUN mariadb-server
 
 RUN mkdir -p /run/mysqld
 
