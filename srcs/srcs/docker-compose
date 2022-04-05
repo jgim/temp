@@ -1,61 +1,64 @@
 version: '3'
-
 services:
+
   mariadb:
-    container_name: mariadb
-    build:
-      context: requirements/mariadb
+    build: requirements/mariadb
     image: mariadb
+    container_name: mariadb
     volumes:
       - db-data:/var/lib/mysql
-    restart: always
     networks:
-      - mynetwork
+      - jgim_bridge
+    restart: always
     env_file:
       - .env
 
   wordpress:
-    container_name: wordpress
     build: requirements/wordpress
     image: wordpress
+    container_name: wordpress
     volumes:
-      - www-data:/var/www/wordpress
+      - www-data:/var/www/html/wordpress
     depends_on:
       - mariadb
-    networks:
-      - mynetwork
     restart: always
+    networks:
+      - jgim_bridge
     env_file:
       - .env
 
   nginx:
-    container_name: nginx
-    build: requirements/nginx
+    build: requirements/nginx/
     image: nginx
+    container_name: nginx
+    volumes:
+      - www-data:/var/www/html/wordpress
     depends_on:
       - wordpress
-    networks:
-      - mynetwork
     restart: always
-    volumes:
-      - www-data:/var/www/wordpress
+    networks:
+      - jgim_bridge
     ports:
-      - 443:443
+      - "443:443"
     env_file:
       - .env
 
 volumes:
   db-data:
+    name: db-data
     driver_opts:
       type: none
       device: /home/jgim/data/db-data
       o: bind
+
   www-data:
+    name: www-data
     driver_opts:
       type: none
       device: /home/jgim/data/www-data
       o: bind
 
 networks:
-  mynetwork:
+  jgim_bridge:
     driver: bridge
+
