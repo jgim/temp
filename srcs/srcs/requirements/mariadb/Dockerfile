@@ -8,9 +8,8 @@ RUN mkdir -p /run/mysqld
 
 COPY tools/ /
 
-RUN \
-  sed -Ei 's/^(bind-address|log)/#&/' /etc/mysql/my.cnf && \
-  sed -Ei 's/#bind-address\s+=\s+127.0.0.1/bind-address=0.0.0.0/g' /etc/mysql/my.cnf
+RUN sed -i -e "s/^bind-address\s*=\s*127.0.0.1/bind-address = 0.0.0.0/" /etc/mysql/my.cnf
+
 #COPY ./conf/50-server.cnf /etc/mysql/mariadb.conf.d/
 #COPY conf/mariadb-server.cnf /etc/my.cnf.d/mariadb-server.cnf
 
