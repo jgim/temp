@@ -4,7 +4,7 @@ RESET	= \033[0m
 
 all:	volume hosts build up
 
-host:
+hosts:
 		@sudo sed -i "s/localhost/jgim.42.fr/g" /etc/hosts
 
 volume:
