@@ -1,6 +1,6 @@
 FROM  alpine:3.15
 
-RUN RUN apk update && apk upgrade
+RUN apk update && apk upgrade
 RUN apk add nginx openrc vim openssl
 
 COPY ./conf/nginx.conf /etc/nginx/
