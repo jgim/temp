@@ -4,9 +4,9 @@ define( 'DB_NAME', 'wordpress' );
 
 define( 'DB_USER', 'jgim' );
 
-define( 'DB_PASSWORD', 'password' );
+define( 'DB_PASSWORD', 'jgim' );
 
-define( 'DB_HOST', 'mariadb' );
+define( 'DB_HOST', 'mariadb:3306' );
 
 define( 'DB_CHARSET', 'utf8' );
 
