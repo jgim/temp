@@ -4,7 +4,6 @@ RUN apk update && apk upgrade
 
 RUN apk add mariadb
 RUN apk add mariadb-client
-RUN apk add mariadb-server
 
 COPY ./conf/50-server.cnf /etc/mysql/mariadb.conf.d/
 COPY ./tools/start.sql /
