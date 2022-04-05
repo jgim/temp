@@ -17,8 +17,9 @@ mysql -u root -e "FLUSH PRIVILEGES;"
 
 mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED BY 'password';";
 
-rc-service mariadb restart
-rc-service mariadb stop
+#rc-service mariadb restart
+#rc-service mariadb stop
 
+pkill mysqld
 /usr/bin/mysqld -u root
 #root권한으로 mysql 실행
