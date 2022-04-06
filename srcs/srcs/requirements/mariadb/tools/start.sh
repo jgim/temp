@@ -1,7 +1,4 @@
 mysql_install_db --user=mysql --datadir=/var/lib/mysql
-#mysql_install_db는 mysqld를 사용할 준비가 되기 전에 수행해야하는 초기화 작업
-#mySQL 데이터 디렉토리를 초기화하고 여기에 포함된 시스템 테이블을 생성
-#datadir : 데이터 디렉토리 경로 = var/lib/mysql
 
 /usr/bin/mysqld -u root & sleep 1
 
