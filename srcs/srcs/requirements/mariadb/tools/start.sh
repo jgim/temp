@@ -6,7 +6,7 @@ mysql_install_db --user=mysql --datadir=/var/lib/mysql
 /usr/bin/mysqld -u root & sleep 1
 
 mysql -u root -e "CREATE DATABASE IF NOT EXISTS wordpress;"
-# 새 사용자를 만들고 사용자에게 wp-db에 모든 권한을 부여
+
 mysql -u root -e "CREATE USER 'jgim'@'%' IDENTIFIED BY 'jgim';"
 mysql -u root -e "GRANT ALL PRIVILEGES ON wordpress.* TO 'jgim'@'%';"
 
@@ -17,5 +17,4 @@ mysql -u root -e "GRANT ALL PRIVILEGES ON wordpress.* TO 'jgim'@'localhost';"
 mysql -u root -e "FLUSH PRIVILEGES;"
 mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED BY 'jgim';";
 
-#pkill mysqld
 /usr/bin/mysqld -u root
