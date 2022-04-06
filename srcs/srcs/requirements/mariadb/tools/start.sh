@@ -5,14 +5,16 @@ mysql_install_db --user=mysql --datadir=/var/lib/mysql
 
 mysql -u root -e "CREATE DATABASE IF NOT EXISTS wordpress;"
 
+mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED BY 'jgim;";
+
 mysql -u root -e "CREATE USER 'jgim'@'%' IDENTIFIED BY 'jgim';"
 mysql -u root -e "GRANT ALL PRIVILEGES ON wordpress.* TO 'jgim'@'%';"
 
-mysql -u root -e "CREATE USER 'jgim'@'localhost' IDENTIFIED BY 'jgim';"
-mysql -u root -e "GRANT ALL PRIVILEGES ON wordpress.* TO 'jgim'@'localhost';"
+#mysql -u root -e "CREATE USER 'jgim'@'localhost' IDENTIFIED BY 'jgim';"
+#mysql -u root -e "GRANT ALL PRIVILEGES ON wordpress.* TO 'jgim'@'localhost';"
 
 mysql -u root -e "FLUSH PRIVILEGES;"
 
-mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED BY 'jgim;";
+
 
 /usr/bin/mysqld -u root
