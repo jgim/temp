@@ -6,7 +6,6 @@ RUN apk add mariadb mariadb-client
 
 RUN mkdir -p /run/mysqld
 
-COPY tools/wordpress.sql ./
 COPY tools/ /
 
 COPY ./conf/my.cnf /etc/mysql/my.cnf
