@@ -15,4 +15,7 @@ mysql -u root -e "FLUSH PRIVILEGES;"
 
 mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED BY 'jgim';";
 
+rc-service mariadb restart
+rc-service mariadb stop
+
 /usr/bin/mysqld -u root
