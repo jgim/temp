@@ -13,6 +13,6 @@ mysql -u root -e "GRANT ALL PRIVILEGES ON wordpress.* TO 'jgim'@'localhost';"
 
 mysql -u root -e "FLUSH PRIVILEGES;"
 
-mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED BY 'jgim';";
+mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED BY 'jgim;";
 
 /usr/bin/mysqld -u root
