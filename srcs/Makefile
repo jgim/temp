@@ -32,10 +32,9 @@ clean:
 fclean:	clean
 		@echo "$(RED)removing all file$(RESET)"
 		sudo docker rmi			mariadb wordpress nginx
-		sudo docker volume rm	db_data wordpress_data
 		sudo docker system prune -a
 		sudo rm -rf			/home/jgim/data
 
-re:		stop fclean all
+re:		fclean all
 
 .PHONY:	all volume build up stop clean fclean re
