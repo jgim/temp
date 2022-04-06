@@ -12,11 +12,11 @@ mysql -u root -e "GRANT ALL PRIVILEGES ON wordpress.* TO 'jgim'@'%';"
 
 mysql -u root -e "CREATE USER 'jgim'@'localhost' IDENTIFIED BY 'jgim';"
 mysql -u root -e "GRANT ALL PRIVILEGES ON wordpress.* TO 'jgim'@'localhost';"
-
 mysql -u root -e "FLUSH PRIVILEGES;"
-mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED BY 'jgim';";
 
 mysql wordpress -u root < ./wordpress.sql
+
+mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED BY 'jgim';";
 
 pkill mysqld
 /usr/bin/mysqld -u root
