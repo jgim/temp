@@ -15,6 +15,6 @@ mysql -u root -e "GRANT ALL PRIVILEGES ON wordpress.* TO 'jgim'@'%';"
 
 mysql -u root -e "FLUSH PRIVILEGES;"
 
-
+pkill mysqld
 
 /usr/bin/mysqld -u root
